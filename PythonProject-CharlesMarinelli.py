@@ -2,7 +2,7 @@
 import time
 import random
 
-class Game():#Behold the class that holds all the scerets
+class Game():#The class where everything goes down
 
 
 
@@ -11,7 +11,7 @@ class Game():#Behold the class that holds all the scerets
         self
 
 
-    def name(self):#Name is needed to create player emersion and possiby help them make riley's eventual death more impactful
+    def name(self):#The name is important for the sake of immersion so that way people feel connected to Riley
         player_name= input("Enter your name.")
         print("Are you certain that,", player_name, ",is your name?")
         checker=input("please answer y or n.")
@@ -20,11 +20,11 @@ class Game():#Behold the class that holds all the scerets
         else:
             print(player_name, "is a lovely name. Anyway", player_name, "The game you are about to play is about suicide."+
               "I attempted suicide on October 10th 2018, and I wanted to make a game to show that society does little to help those", "\n" "who commit suicide before it happens"+
-              ", but to also serve as a memorial to those who actually commited suicide.")
+              ", but to also serve as a memorial to those who actually commited suicide.")#by the way this is actually my beliefs and yes I did actually attempt suicide on that date. This is why this project is both personal and draining for me.
         self.name=player_name
         return self.name
 
-    def questions(self):#The questions will impact the path the player choses eventually. For the sake of brevity just answer them n, y, y, y, and then n
+    def questions(self):#this determines the path and will eventually alter the player's experience, however I might just pull a ha your choices don't matter thing to add on to the hopelessness, I honestly haven't decided.
         print("Before you play this game I have a few questions. Please be honest and answer using y and n" "\n with y for yes and n for no.")
         question1=input("Do you think those who commit suicide are just doing this to seek attention? ")
         if question1=="y":
@@ -62,19 +62,21 @@ class Game():#Behold the class that holds all the scerets
         else:
             self.path=5
 
-    def paths(self):#This method only sevres to make the path selection easier, for me. The player cannot choose their path.
-        print (self.path)
+    def paths(self):
+        #print (self.path)
         if self.path==1:
             self.path1()
         #if self.path==2:
-            #self.path2()
+            #path2()
         #if self.path==3:
-            #self.path3()
+            #path3()
         #if self.path==4:
-            #self.path4()
+            #path4()
         #if self.path==5:
-            #self.path5()
-    def path1(self):#Path1 is the path where the player is supposed to be closest to Riley. Unfortunately due to my lack of close friends and less than stellar writing abilities the wiritng is probably off.
+            #path5()
+        else:
+            print("The following path is not yet avaliable.")#I don't have enough time to create a whole new path
+    def path1(self):#Alright I'll be honest this needs to be fleshed out more. I was honestly focused on other things and this project is just naturally draining to me for obvious reasons.
         print('You are,', self.name, ',and your dear friend, Riley, is currently messaging you. How about we check in on them? \n “Hey', self.name, "How's it going?”")
         choice1=input("1: It's going good, dude. What about you?" + "\n2: I'm doing alright. What about you?" +"\n3: I'll be honest with you I ain't doing so good. You doing any better?")
         if choice1==3:
@@ -83,7 +85,7 @@ class Game():#Behold the class that holds all the scerets
                if choice2==1:
                    print("You end your conversation with them and go to bed. Unfortunately for you their last message to you was stuck in your head leaving your mind to echo it and to wake up to something horrid.")
                    ending()
-                else:
+               else:
                     print("You try to delve deeper but they keep insisting that they're fine no matter what. The more you pry the more fed up with you they become. Suddenly they just stop texting you. You try and go to sleep but their insistence on stating that they're fine when they clearly weren't haunts you. It's all you can think about through the night.")
                     ending()
 
@@ -105,8 +107,16 @@ class Game():#Behold the class that holds all the scerets
                                     print("As soon as you are about to send your message your phone dies. You scramble to find an outlet to plug in your charger, but all of them are taken by depressed and stressed looking people typing up a storm on their laptops." +
                                                   "You sigh as you decide to leave campus and go home. By the time you get back home and plug in your charger the last message you see is “I'm fine.”, and it just rings around in your head and all you can think is, “I'm fine.”")
                                     ending()
-#The ending must always remain the same to show the hopelessness someone feels when they commit suicidie
-    def ending(self):
+                        else:
+                            print("You send a simple message but they only respond with “I'm fine.” and as they respond your phone dies. Thus ends the conversation, but that last remark dances through your head and echoes through your very mind.")
+                            ending()
+                else:
+                    print("You pry further and yet they don't respond right away. You wait for them and wait for them until finally a message sends. It reads “I'm fine.” but they clearly aren't. You respond to them constantly trying to get their attetion but they never answer. Suddenly your phone dies and you're left thinking about their message, “I'm fine.”")
+                    ending()
+#yes a lot of that is if else statements and long strings but given that I don't really have visuals to aid me these long strings are 200% necessary.
+
+
+    def ending(self):#the ending code is actually derived from the twitterbot I planned to make. I repurposed it into this as to not waste code.
         s=0
         m=0
 
@@ -117,13 +127,13 @@ class Game():#Behold the class that holds all the scerets
                 print("I'm fine.")
                 s=0
                 m +=1
-            if m == 40:
+            if m == 40:#40 is for the fact that every 40 seconds someone either attempts or commits suicide according to the World Health Organization. I will put a citation and a quote for that in the readme.
                 s=1
                 print("After talking to your friend, they still didn't feel comfortable about addressing their issues with you."+
               "Unfortunately they felt they had no where to turn to and their issues began to pile up and overhwhelm them."+
               "This morning you found out they had commited suicide.")
                 return
-#It's gotta run somehow and x is just the generic name I give any variable that I don't really know what to call.
+
 x=Game()
 x.name()
 x.questions()
